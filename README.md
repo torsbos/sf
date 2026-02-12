@@ -1,6 +1,8 @@
 # sf - simple fetch
 a simple fetch script  written in bash
+<img src="https://raw.githubusercontent.com/torsbos/sf/refs/heads/main/preview.jpg" alt="preview of sf"/>
 
+<br>
 ## usage
 make `sf` into an executable:
 ```
