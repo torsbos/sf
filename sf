@@ -1,5 +1,4 @@
 #!/bin/bash
-#parts of this script from https://github.com/arwn/gfetch
 
 shell=$SHELL
 uptime=$(uptime -p | sed s/up//)
@@ -13,13 +12,13 @@ bat_percent=$(cat /sys/class/power_supply/BAT0/capacity)
 bat_status=$(cat /sys/class/power_supply/BAT0/status)
 
 cat <<EOF
-             $user@$host
-    (\(\     -----------
-   j". ..    os: $os ($node)
-   (  . .)   kernel: $kernel
-   |   ° ¡   shell: $shell
-   ¿     ;   uptime:$uptime
-   c?".UJ    packages: $packages
-             battery: $bat_percent% ($bat_status)
+$user@$host
+-----------
+os: $os ($node)
+kernel: $kernel
+shell: $shell
+uptime:$uptime
+packages: $packages
+battery: $bat_percent% ($bat_status)
 
 EOF
