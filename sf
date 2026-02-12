@@ -1,24 +1,17 @@
 #!/bin/bash
 
-shell=$SHELL
 uptime=$(uptime -p | sed s/up//)
-user=$USER
-host=$HOSTNAME
 os=$(uname -o)
 node=$(uname -n)
 kernel=$(uname -r)
-packages=$(pacman -Qq | wc -l)
 bat_percent=$(cat /sys/class/power_supply/BAT0/capacity)
 bat_status=$(cat /sys/class/power_supply/BAT0/status)
 
 cat <<EOF
-$user@$host
------------
-os: $os ($node)
-kernel: $kernel
-shell: $shell
-uptime:$uptime
-packages: $packages
-battery: $bat_percent% ($bat_status)
+         $USER@$HOSTNAME
+  ( (    os:       $os ($node)
+  ) )    kernel:   $kernel
+ |~~~|]  uptime:  $uptime
+ \___/   battery:  $bat_percent% ($bat_status)
 
 EOF
