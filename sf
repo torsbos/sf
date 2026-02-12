@@ -1,9 +1,10 @@
 #!/bin/bash
+#parts of this script from https://github.com/arwn/gfetch
 
 shell=$SHELL
 uptime=$(uptime -p | sed s/up//)
 user=$USER
-host=$(cat /etc/hostname)
+host=$HOSTNAME
 os=$(uname -o)
 node=$(uname -n)
 kernel=$(uname -r)
@@ -17,7 +18,7 @@ cat <<EOF
    j". ..    os: $os ($node)
    (  . .)   kernel: $kernel
    |   ° ¡   shell: $shell
-   ¿     ;   uptime: $uptime
+   ¿     ;   uptime:$uptime
    c?".UJ    packages: $packages
              battery: $bat_percent% ($bat_status)
 
