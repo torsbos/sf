@@ -3,6 +3,8 @@
 <br>
 a simple fetch script  written in bash
 
+note: this script was written for my system running arch linux.
+it can easily be customized to suit your needs.
 ## usage
 make `sf` into an executable:
 ```
