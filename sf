@@ -1,0 +1,24 @@
+#!/bin/bash
+
+shell=$SHELL
+uptime=$(uptime -p | sed s/up//)
+user=$USER
+host=$(cat /etc/hostname)
+os=$(uname -o)
+node=$(uname -n)
+kernel=$(uname -r)
+packages=$(pacman -Qq | wc -l)
+bat_percent=$(cat /sys/class/power_supply/BAT0/capacity)
+bat_status=$(cat /sys/class/power_supply/BAT0/status)
+
+cat <<EOF
+             $user@$host
+    (\(\     -----------
+   j". ..    os: $os ($node)
+   (  . .)   kernel: $kernel
+   |   ° ¡   shell: $shell
+   ¿     ;   uptime: $uptime
+   c?".UJ    packages: $packages
+             battery: $bat_percent% ($bat_status)
+
+EOF
